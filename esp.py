@@ -67,7 +67,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Extract all the spring security roles and permissions declared with @PreAuthorized annotation from a project.')
     parser.add_argument('package_file', help='The package folder or Java file')
     parser.add_argument('--outformat', default="#{value}", help="The output format to export each permission, default is '#{value}' which export like 'ROLE_ADMIN'")
-    parser.add_argument('--replace', default="ROLE_,", help="Replace part of the output value with another value, e.g. for value 'ROLE_ADMIN' 'ROLE_,R_'='R_ADMIN', 'ROLE_,'='ADMIN'")
+    parser.add_argument('--replace', default=",", help="Replace part of the output value with another value, e.g. for value 'ROLE_ADMIN' 'ROLE_,R_'='R_ADMIN', 'ROLE_,'='ADMIN'")
     
     args = parser.parse_args()
     extract_permissions(args.package_file, args.outformat, args.replace)
