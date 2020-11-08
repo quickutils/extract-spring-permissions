@@ -90,7 +90,7 @@ ADMIN
 VIEW_ABSTRACT_PROVIDER
 ```
 
-### With --format argument and --replace
+### With --format and --replace arguments
 
 ```
 python esp.py HomeController.java --outformat "\"value\": \"#{value}\"," --replace "ROLE_,"
