@@ -39,7 +39,8 @@ def strip_quotes(permission):
     permission = get_value_between(permission, "{", "}")
     permission = get_value_between(permission, "'", "'")
     permission = get_value_between(permission, '"', '"')
-    return permission
+    permission = get_value_between(permission, '+', '+')
+    return permission.strip()
     
 def get_value_between(unprocessed, opening, closing):
     unprocessed = unprocessed.split(opening)
