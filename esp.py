@@ -19,7 +19,9 @@ def extract_permissions_from_file(file_content, outformat, replace):
     lines = file_content.split('\n')
     for line in lines:
         line = line.strip()
-        if not line.startswith("@PreAuthorize") and not line.startswith("//@PreAuthorize") and not line.startswith("@PreAuthorizePermission") and not line.startswith("//@PreAuthorizePermission"):
+        if not line.startswith("//") and not line.startswith("@PreAuthorize") and not line.startswith("//@PreAuthorize") and not line.startswith("@PreAuthorizePermission") and not line.startswith("//@PreAuthorizePermission"):
+            continue
+        if "@PreAuthorize" not in line and "@PreAuthorizePermission" not in line:
             continue
         annotation_part = get_value_between(line, '(', ')')
         roles = annotation_part.split(',')
